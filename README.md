@@ -1,5 +1,5 @@
-# Stats App
-by @SparkWings
+# Stats
+by [@SparkWings](https://github.com/SparkWings)
 
 
-I don't really even know what this does tbh
+Calculate some basic stats from your [competitive rounds on Mineplex](https://mpcleague.org/).
