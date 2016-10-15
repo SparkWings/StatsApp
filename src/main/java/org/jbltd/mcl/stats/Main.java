@@ -28,7 +28,7 @@ public class Main extends JFrame {
 
     private Main main = this;
 
-    private static final String[] TEXT_LABELS = new String[] { "Team 1 Name", "Team 2 Name", "Team 1 Game Color (Red/Blue)", "Team 2 Game Color (Red/Blue)", "Team 1 Players (Seperate by Comma, NO SPACES)", "Team 2 Players (Seperate by Comma, NO SPACES)" };
+    private static final String[] TEXT_LABELS = new String[] { "Team 1 Name", "Team 2 Name", "Team 1 Game Color (Red/Blue)", "Team 2 Game Color (Red/Blue)", "Team 1 Players (Separate by commas)", "Team 2 Players (Separate by commas)" };
 
     public Main() {
 
