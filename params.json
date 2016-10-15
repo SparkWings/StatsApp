@@ -1,0 +1,6 @@
+{
+  "name": "MCL Stat Tracker",
+  "tagline": "",
+  "body": "### Welcome to The MCL Stats Tracker\r\n\r\n### Intro\r\nI was approached by the Management team within the MCL and asked to make this application specifically for the MS teams that need to track their team stats. It took me roughly a few hours to design, code, and publish this. I had decided to not release the code publicly until now.\r\n\r\n### What It Does\r\nBasically, in essence what the application does:\r\n\r\nYou feed it a Minecraft Log file which can be found in %appdata%\\logs\\\r\nIt then reads the log file and team data you provide it from scrims, which it then pastes in a view-able format for your data crunching.\r\n\r\n### How To Use\r\nStep 1: Feed it the scrim log file.\r\nStep 2: Enter team data from both teams, including the team names, team members separated by a comma, and in-game team colors.\r\n\r\nStep 3: Give the program a second to parse the data, and voila ~ Your data is displayed to you on the screen.\r\n\r\n### Authors and Contributors\r\nThis application was developed by Jeremiah Bishop (@SparkWings) for the MCL.\r\n\r\n### Support or Contact\r\nHaving trouble? Email me: jeremiah@programmer.net\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
