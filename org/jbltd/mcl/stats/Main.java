@@ -1,19 +1,13 @@
 package org.jbltd.mcl.stats;
 
-import org.jbltd.mcl.stats.util.*;
-
-import javax.imageio.ImageIO;
-import javax.swing.*;
-import javax.swing.filechooser.FileNameExtensionFilter;
-
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.HashMap;
-
+import org.jbltd.mcl.stats.util.PlayerData;
+import org.jbltd.mcl.stats.util.PlayerManager;
+import org.jbltd.mcl.stats.util.SpringUtilities;
+import org.jbltd.mcl.stats.util.TeamData;
+import org.jbltd.mcl.stats.util.TeamManager;
+import org.jbltd.mcl.stats.util.UtilFileReader;
+import org.jbltd.mcl.stats.util.UtilSystem;
+ 
 public class Main extends JFrame {
 
     private static final long serialVersionUID = - 9094851614997657772L;
