@@ -23,7 +23,7 @@ public class UpdateThread implements Runnable {
     @Override
     public void run() {
 
-	System.out.println("Update Thread> Calling Update Manager");
+	System.out.println("| UPDATE THREAD - Calling Update Manager");
 	File thisF = new File(".");
 	
 
@@ -50,7 +50,7 @@ public class UpdateThread implements Runnable {
 		    }
 		    else
 		    {
-			System.out.println("Update Thread> No update found.");
+			System.out.println("| UPDATE THREAD - No update found.");
 		    }
 		}
 

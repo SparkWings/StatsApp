@@ -37,9 +37,9 @@ public class Main extends JFrame {
 
     private Main main = this;
     
-    public static final double version = 1.5;
+    public static final double version = 2.0;
 
-    private static final String[] TEXT_LABELS = new String[] { "Team 1 Name", "Team 2 Name", "Team 1 Game Color (Red/Blue)", "Team 2 Game Color (Red/Blue)", "Team 1 Players (Separate by commas)", "Team 2 Players (Separate by commas)" };
+    private static final String[] TEXT_LABELS = new String[] { "Team 1 Name", "Team 2 Name", "Team 1 Half 1 Game Color (Red/Blue)", "Team 2 Half 1 Game Color (Red/Blue)", "Team 1 Players (Separate by commas)", "Team 2 Players (Separate by commas)" };
 
     public Main() {
 
@@ -98,13 +98,13 @@ public class Main extends JFrame {
 
                     }
 
-                    if (jt.getText().contains("Team 1 Game Color")) {
+                    if (jt.getText().contains("Team 1 Half 1 Game Color")) {
                         JTextField jtf = _data.get(jt);
                         _teamOneColor = jtf.getText().trim();
 
                     }
 
-                    if (jt.getText().contains("Team 2 Game Color")) {
+                    if (jt.getText().contains("Team 2 Half 1 Game Color")) {
                         JTextField jtf = _data.get(jt);
                         _teamTwoColor = jtf.getText().trim();
 
