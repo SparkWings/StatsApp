@@ -3,6 +3,10 @@
 + Release
 
 
+--------------------------
+
+
+
 #Changelog (v2.0)
 
 + Added halftime switching
@@ -12,7 +16,11 @@
 - Bugs
 
 
-##Future Plans (v3.0)
+
+------------------------
+
+
+#Future Plans (v3.0)
 
 + Data viewable via graphs
 + Faster processing of data
