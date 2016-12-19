@@ -1,67 +1,77 @@
 package org.jbltd.mcl.stats.util;
 
-import java.io.File;
-import java.net.URL;
-import java.util.Scanner;
-
-import javax.swing.JOptionPane;
-
 import org.apache.commons.io.FileUtils;
 import org.jbltd.mcl.stats.Main;
 
-public class UpdateThread implements Runnable {
+import javax.swing.*;
+
+import java.io.File;
+import java.net.URL;
+import java.nio.file.Paths;
+import java.util.Scanner;
+
+public class UpdateThread implements Runnable
+{
+
+    /** where this app was initially executed */
+    private final String WORKING_DIRECTORY = Paths.get(".").toAbsolutePath().normalize().toString();
 
     private Main mainThread;
 
-    public UpdateThread(Main main) {
-
-	this.mainThread = main;
-
-	run();
+    public UpdateThread(Main main)
+    {
+        this.mainThread = main;
     }
 
     @Override
-    public void run() {
+    public void run()
+    {
+        System.out.println("| UPDATE THREAD - Calling Update Manager");
 
-	System.out.println("| UPDATE THREAD - Calling Update Manager");
-	File thisF = new File(".");
-	
+        try
+        {
+            URL url = new URL("https://s3.amazonaws.com/sparkwings/STATSAPP_CURRENT.dat");
+            Scanner s = new Scanner(url.openStream());
 
-	synchronized (this) {
+            while (s.hasNext())
+            {
+                String n = s.next();
+                double version = Double.parseDouble(n);
 
-	    try {
-		URL url = new URL("https://s3.amazonaws.com/sparkwings/STATSAPP_CURRENT.dat");
-		Scanner s = new Scanner(url.openStream());
+                if (version > Main.version)
+                {
+                    JOptionPane.showMessageDialog(mainThread, "Your application version is outdated. Lets fix that! :D \n Your application will now auto-update and close.");
 
-		while (s.hasNext()) {
-		    String n = s.next();
-		    double version = Double.parseDouble(n);
+                    final File _updateFile = new File(WORKING_DIRECTORY, "MCSL Stat Tracker - UPDATED.jar");
 
-		    if (version > Main.version) {
+                    FileUtils.copyURLToFile(new URL("https://s3.amazonaws.com/sparkwings/STAT_TRACKER_LATEST.jar"), _updateFile);
 
-			JOptionPane.showMessageDialog(mainThread,
-				"Your application version is outdated. Lets fix that! :D \n Your application will now auto-update and close.");
+                    // automatically restart the app - OutdatedVersion
+                    final ProcessBuilder _processBuilder = new ProcessBuilder("java", "-jar", _updateFile.getAbsolutePath());
 
-			FileUtils.copyURLToFile(new URL("https://s3.amazonaws.com/sparkwings/STAT_TRACKER_LATEST.jar"),
-				new File(thisF.getAbsolutePath(), "MCSL Stat Tracker - UPDATED.jar"));
+                    // continue using the same terminal session
+                    _processBuilder.inheritIO();
 
-			System.exit(0);
+                    final Process _process = _processBuilder.start();
 
-		    }
-		    else
-		    {
-			System.out.println("| UPDATE THREAD - No update found.");
-		    }
-		}
+                    // wait for the new instance to be up..
+                    _process.waitFor();
 
-		s.close();
+                    // close out this outdated one
+                    System.exit(_process.exitValue());
+                }
+                else
+                {
+                    System.out.println("| UPDATE THREAD - No update found.");
+                }
+            }
 
-	    } catch (Exception e) {
-		e.printStackTrace();
-	    }
-
-	}
-
+            s.close();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
     }
 
 }
