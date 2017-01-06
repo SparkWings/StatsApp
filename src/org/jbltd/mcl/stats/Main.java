@@ -1,27 +1,14 @@
 package org.jbltd.mcl.stats;
 
-import java.awt.Dimension;
+import org.jbltd.mcl.stats.util.*;
+
+import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
-
-import javax.swing.JButton;
-import javax.swing.JFileChooser;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.SpringLayout;
-import javax.swing.filechooser.FileNameExtensionFilter;
-
-import org.jbltd.mcl.stats.util.PlayerData;
-import org.jbltd.mcl.stats.util.PlayerManager;
-import org.jbltd.mcl.stats.util.SpringUtilities;
-import org.jbltd.mcl.stats.util.TeamData;
-import org.jbltd.mcl.stats.util.TeamManager;
-import org.jbltd.mcl.stats.util.UpdateThread;
-import org.jbltd.mcl.stats.util.UtilFileReader;
-import org.jbltd.mcl.stats.util.UtilSystem;
 
 public class Main extends JFrame {
 
@@ -158,7 +145,7 @@ public class Main extends JFrame {
 
         this.setVisible(true);
         
-        new UpdateThread(this);
+        new UpdateThread(this).run();
     }
 
     public static void main(String[] args) {
