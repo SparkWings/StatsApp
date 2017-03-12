@@ -30,7 +30,7 @@ public class UpdateThread implements Runnable
 
         try
         {
-            URL url = new URL("https://s3.amazonaws.com/sparkwings/STATSAPP_CURRENT.dat");
+            URL url = new URL("https://s3.amazonaws.com/jbishop98/PWM.dat");
             Scanner s = new Scanner(url.openStream());
 
             while (s.hasNext())
